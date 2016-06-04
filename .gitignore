@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+dist
+*.egg
+*.egg-info
+.tox
+.coverage
+.cache
+/local_settings.py
+__pycache__
