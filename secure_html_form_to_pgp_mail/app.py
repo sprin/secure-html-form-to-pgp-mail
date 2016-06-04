@@ -31,7 +31,8 @@ def app_factory():
     CsrfProtect(app)
     mail = Mail(app)
 
-    app.route('/', methods=['GET', 'POST'])(views.index(
+    app.route('/', methods=['GET'])(views.index)
+    app.route('/post', methods=['POST'])(views.handle_contact_form(
         mail, app.config['MAIL_TITLE'], app.config['MAIL_RECIPIENT']))
     app.route('/csrf_token', methods=['GET'])(views.csrf_token)
 
