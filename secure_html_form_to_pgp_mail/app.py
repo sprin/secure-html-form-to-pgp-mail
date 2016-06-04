@@ -4,10 +4,17 @@ import os
 
 import flask
 from flask_wtf.csrf import CsrfProtect
-from flask_mail import Mail
+from flask_mail import Mail, email_dispatched
 
 from . import config
 from . import views
+
+# Log each encrypted message. Allows message to be recovered from logs
+# if sending fails for whatever reason.
+def log_message(message, app):
+    app.logger.info(message)
+email_dispatched.connect(log_message)
+
 
 def app_factory():
     """Factory function for the WSGI application object.
