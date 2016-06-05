@@ -6,6 +6,7 @@ PYPY = hasattr(sys, 'pypy_version_info')
 requires = [
     'flask>=0.10, <1.0',
     'Flask-WTF>=0.12',
+    'Flask-Mail>=0.9.1',
 ]
 
 setup(
@@ -36,7 +37,7 @@ setup(
 
     platforms=['Any'],
 
-    provides=['secure-html-form-to-pgp-mail'],
+    provides=['secure_html_form_to_pgp_mail'],
     zip_safe=False,
 
     install_requires=requires,
